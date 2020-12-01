@@ -1,4 +1,5 @@
 import 'package:design/src/pages/headers_page.dart';
+import 'package:design/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: HeadersPage(),
+      home: HeaderTriangular(),
     );
   }
 }
