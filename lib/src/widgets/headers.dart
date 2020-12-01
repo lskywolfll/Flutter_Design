@@ -119,3 +119,55 @@ class _HeaderTriangularPainter extends CustomPainter{
     return true;
   }
 }
+
+class HeaderStar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      color: Colors.blue,
+      child: CustomPaint(
+        painter: _HeaderStarPainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderStarPainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+
+    //lapiz para pintar y dibujar
+    final paint = new Paint();
+
+    //Propiedades
+    paint.color = Colors.red;
+    paint.style = PaintingStyle.stroke;
+    paint.strokeWidth = 5;
+
+    final path = new Path();
+ 
+    //dibujar con el path y el lapiz
+    path.moveTo(size.width * 0.42, size.height * 0.6);
+    path.lineTo(size.width * 0.5, size.height * 0.5);
+    path.lineTo(size.width * 0.6, size.height * 0.6);
+    path.lineTo(size.width * 0.75, size.height * 0.65);
+    path.lineTo(size.width * 0.6, size.height * 0.7);
+    path.lineTo(size.width * 0.6, size.height * 0.8);
+    path.lineTo(size.width * 0.5, size.height * 0.7);
+    path.lineTo(size.width * 0.4, size.height * 0.8);
+    path.lineTo(size.width * 0.4, size.height * 0.7);
+    path.lineTo(size.width * 0.25, size.height * 0.65);
+    path.lineTo(size.width * 0.423, size.height * 0.6);
+    // path.lineTo(size.width * 0.89, size.height * 0.7);
+
+
+    canvas.drawPath(path, paint);
+  }
+  
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
