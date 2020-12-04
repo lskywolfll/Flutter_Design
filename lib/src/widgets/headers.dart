@@ -257,3 +257,54 @@ class _HeaderCurvoPainter extends CustomPainter{
     return true;
   }
 }
+
+class HeaderWave extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      // color: Color(0xff615AAB),
+      child: CustomPaint(
+        painter: _HeaderWavePainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderWavePainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+
+    //lapiz para pintar y dibujar
+    final paint = new Paint();
+
+    //Propiedades
+    paint.color = Color(0xff615AAB);
+    paint.style = PaintingStyle.fill;
+    paint.strokeWidth = 20;    
+
+    final path = new Path();
+ 
+    //dibujo parte superior
+    // path.lineTo(0, size.height * 0.25);
+    // path.quadraticBezierTo(size.width * 0.25, size.height * 0.30, size.width * 0.5, size.height * 0.25);  
+    // path.quadraticBezierTo(size.width * 0.75, size.height * 0.20, size.width, size.height * 0.25);
+    // path.lineTo(size.width, 0);
+
+    //dibujo en parte inferior
+
+    path.moveTo(0, size.height);
+    path.lineTo(0, size.height * 0.75);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.70, size.width * 0.5, size.height * 0.75);  
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.80, size.width, size.height * 0.75);
+    path.lineTo(size.width, size.height);
+
+    canvas.drawPath(path, paint);
+  }
+  
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
